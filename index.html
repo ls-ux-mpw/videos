@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- jQuery CDN -->
+	  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	  <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+
+  <!-- Flickity CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+  <style>
+	/* HEADER */
+
+	.banner-sactionals {
+		width: 100%;
+		height: 233px;
+		background-image: url("https://content.lovesac.com/images/content/749691.png");
+		background-repeat: no-repeat;
+		box-sizing: border-box;
+		min-height: 447px;
+		background-position-y: top;
+		background-position-x: center;
+		display: flex;
+		flex-direction: column;
+		flex-shrink: 1;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 0px;
+		/* border-bottom: 1px solid #b7b8b9; */
+	}
+
+	.banner-sacs {
+		width: 100%;
+		height: 233px;
+		background-image: url("https://content.lovesac.com/images/content/749693.png");
+		background-repeat: no-repeat;
+		box-sizing: border-box;
+		min-height: 447px;
+		background-position-y: top;
+		background-position-x: center;
+		display: flex;
+		flex-direction: column;
+		flex-shrink: 1;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 0px;
+		/* border-bottom: 1px solid #b7b8b9; */
+	}
+
+	h1 {
+		font-family: 'MillerDisplayRegular';
+		font-size: 42px;
+		color: #fff !important;
+		margin-bottom: -20px;
+		padding-bottom: 0px;
+	}
+
+	.subhead {
+		font-size: 18px;
+		font-family: 'MuseoSans300', sans-serif;
+		letter-spacing: 1px;
+		text-align: center;
+		color: #fff;
+		box-sizing: border-box;
+		display: block;
+		line-height: 25.7143px;
+	}
+
+	.toggle,
+	.toggle-border {
+		text-align: center !important;
+		margin: 0px !important;
+		height: 42px !important;
+		/* border-bottom: 1px solid #949494; 		border-style: none none inset none; */
+	}
+
+	#sacs-toggle {
+		background-color: white;
+		color: "#54585a";
+		display: inline-block;
+		border: none;
+		height: 100%!important;
+		padding: 12px 0px;
+		width: 50%!important;
+		text-align: center!important;
+		font-family: "MuseoSans500", sans-serif;
+		font-size: 14px;
+		letter-spacing: 1px;
+		border-bottom: 1px solid #949494;
+	}
+
+	#sactionals-toggle {
+		background-color: "#009ca6";
+		color: white;
+		display: inline-block;
+		border: none;
+		height: 100%!important;
+		padding: 12px 0px;
+		width: 50%!important;
+		text-align: center!important;
+		font-family: "MuseoSans500", sans-serif!important;
+		font-size: 14px;
+		letter-spacing: 1px;
+		border-bottom: 1px solid #949494;
+	}
+
+	#sacs-toggle:hover,
+	#sactionals-toggle:hover {
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	h2 {
+		font-family: 'MillerDisplayRegular', serif;
+		color: #54585A;
+		text-align: center;
+		margin-top: 30px;
+		/*	margin-bottom: -50px; */
+	}
+	/* CAROUSEL */
+
+	hr {
+		border-top: 2px solid #009ca6;
+		width: 95%;
+	}
+
+	.carousel-wrapper {
+		width: 90%;
+		align: center;
+		margin: 30px auto 100px auto;
+	}
+
+	.video-img {
+		height: 315px;
+		width: 560px;
+	}
+
+	.video-wrap:hover {
+		cursor: pointer;
+	}
+	/* FLICKITY CONTROLS FOR DESKTOP */
+	/* .flickity-button { background: #333; } .flickity-button:hover { background: #F90; } */
+
+	.flickity-prev-next-button {
+		width: 50px;
+		height: 50px;
+		border-radius: 5px;
+	}
+	/* icon color */
+
+	.flickity-button-icon {
+		fill: #54585A;
+	}
+	/* position outside */
+
+	.flickity-prev-next-button.previous {
+		left: -60px;
+	}
+
+	.flickity-prev-next-button.next {
+		right: -60px;
+	}
+	/* white circles */
+
+	.flickity-page-dots .dot {
+		width: 12px;
+		height: 12px;
+		opacity: 1;
+		background: #C0C0C0;
+	}
+	/* fill-in selected dot */
+
+	.flickity-page-dots .dot.is-selected {
+		background: #009ca6;
+	}
+	/* GLOBAL */
+
+	p.cta-text {
+		font-family: "MuseoSans500", sans-serif;
+		font-size: 28px;
+		color: #54585a;
+		text-align: center;
+		background-color: white;
+	}
+
+	.video-text {
+		font-family: MuseoSans500, sans-serif;
+		text-align: center;
+		color: #54585a;
+		margin-top: 10px;
+	}
+
+	a.cta {
+		background-color: rgb(0, 156, 166);
+		border-image-outset: 0px;
+		border-image-repeat: stretch;
+		border-image-slice: 100%;
+		border-image-source: none;
+		border-image-width: 1;
+		border: 1px solid rgb(0, 156, 166);
+		box-sizing: border-box;
+		color: rgb(255, 255, 255);
+		cursor: pointer;
+		display: inline-block;
+		font-family: 'MuseoSans500', sans-serif;
+		font-size: 14px;
+		height: 44px;
+		letter-spacing: 1px;
+		line-height: 18.5714px;
+		margin-bottom: 13px;
+		margin-right: 0px;
+		margin-top: 15px;
+		padding: 12px 30px;
+		text-align: center;
+		text-decoration: none;
+		text-size-adjust: 100%;
+		text-transform: uppercase;
+		width: 250px;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+
+	.button {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		margin-top: 100px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 100px;
+		background-color: white;
+	}
+	/* .video { 		background-image: url('https://content.lovesac.com/images/content/751284.gif'); 		background-position: center; 		background-repeat: no-repeat; 	} */
+	/***** VIDEO MODALS *****/
+
+	.video-modal-close {
+		text-align: right;
+		float: right;
+		padding: 10px 20px 0px 0px;
+		font-size: 42px;
+		color: #54585A;
+		text-decoration: none;
+	}
+
+	.video-modal-close:hover {
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	.youtube-iframe {
+		padding: 0px 15px 42px 15px;
+		margin: 0 auto;
+	}
+
+	.video-modal-body {
+		position: static;
+		display: flex;
+		flex-direction: column;
+		background-color: #ffffff;
+		width: 600px;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		background-image: url("https://content.lovesac.com/images/content/751577.gif");
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	.video-modal-lightbox {
+		position: fixed;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 456;
+		padding: 10% 0 10% 0;
+	}
+
+	@media screen and (max-width: 768px) {
+		.banner-sactionals {
+			background-image: url('https://content.lovesac.com/images/content/749692.png');
+		}
+		.banner-sacs {
+			background-image: url('https://content.lovesac.com/images/content/749694.png');
+		}
+		.wrapper {
+			width: 95%;
+		}
+		/* .video { 			width: 290px; 			height: 163px; 		} */
+		.youtube-iframe {
+			width: 290px;
+			height: 163px;
+		}
+		.video-wrap {
+			width: 290px;
+		}
+		.video-img {
+			width: 290px;
+			height: 163px;
+		}
+		.video-text {
+			font-size: 14px;
+		}
+		.toggle {
+			width: 100%;
+			display: inline-flex;
+			flex-wrap: 0;
+			/* min-width: 320px; 			max-width: 475px; */
+			height: 42px;
+		}
+		/* #sactionals-toggle { 			display: inline-block; 			width: 50% !important; 			text-align: center; 		} 		#sacs-toggle { 			display: inline-block; 			width: 50% !important; 			text-align: center; 		} */
+		.flickity-prev-next-button {
+			/* width: 50px; height: 50px; */
+			border-radius: 5px;
+		}
+		/* icon color */
+		.flickity-button-icon {
+			fill: #009CA6;
+		}
+		.flickity-button {
+			background: none;
+		}
+		.flickity-button:hover {
+			background: none;
+		}
+		/* position inside */
+		.flickity-prev-next-button.previous {
+			left: 0px;
+			top: 75px;
+		}
+		.flickity-prev-next-button.next {
+			right: 0px;
+			top: 75px;
+		}
+		.video-modal-body {
+			width: 320px;
+			margin-top: 65px;
+		}
+	}
+
+</style>
+</head>
+
+
+<body>
+  <!-- ********* HTML ********** -->
+  <div class="banner-sactionals">
+
+  	<h1>Video Gallery</h1>
+  	<br>
+
+  	<p class="subhead">Sacs and Sactionals provide peace of mind that others can&rsquo;t. Learn how with the videos below.</p>
+  </div>
+  <div class="banner-sacs">
+
+  	<h1>Video Gallery</h1>
+  	<br>
+
+  	<p class="subhead">Sacs and Sactionals provide peace of mind that others can&rsquo;t. Learn how with the videos below.</p>
+  </div>
+  <div class="toggle-border"><a id="sactionals-toggle">Sactionals</a><a id="sacs-toggle">Sacs</a></div>
+  <div class="sactionals-about">
+
+  	<h2 style="margin-top:100px;">About Our Sactionals</h2>
+  	<div class="carousel-wrapper">
+  		<div class="carousel-1">
+  			<div class="video-wrap" id="thumb-1-1" style="background-image:url('https://content.lovesac.com/images/content/751577.gif');background-position:center;background-repeat:no-repeat;"><img class="video-img" src="https://content.lovesac.com/images/content/751578.jpg">
+  				<br>
+
+  				<p class="video-text">Sactionals: The World&#39;s Most Adaptable Couch</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-1-2" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751579.jpg">
+  				<br>
+
+  				<p class="video-text">Sactionals - Quick Intro</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-1-3" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751580.jpg">
+  				<br>
+
+  				<p class="video-text">How Sactionals Are Built</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-1-4" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751581.jpg">
+  				<br>
+
+  				<p class="video-text">Sactionals: Configurable</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-1-5" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751582.jpg">
+  				<br>
+
+  				<p class="video-text">Sactionals: Washable</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-1-6" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751583.jpg">
+  				<br>
+
+  				<p class="video-text">Sactionals: Durable</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-1-7" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751584.jpg">
+  				<br>
+
+  				<p class="video-text">How To Use The Wedge Seat</p>
+  			</div>
+  		</div>
+  	</div>
+  	<hr>
+  </div>
+  <div class="sactionals-tips">
+
+  	<h2>Sactionals Use &amp; Pro Tips</h2>
+  	<div class="carousel-wrapper">
+  		<div class="carousel-3">
+  			<div class="video-wrap" id="thumb-3-1" style="background-image:url('https://content.lovesac.com/images/content/751577.gif');background-position:center;background-repeat:no-repeat;"><img class="video-img" src="https://content.lovesac.com/images/content/751585.jpg">
+  				<br>
+
+  				<p class="video-text">Unpacking Your Sactionals</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-3-2" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751586.jpg">
+  				<br>
+
+  				<p class="video-text">Putting On Your Covers</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-3-3" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751587.jpg">
+  				<br>
+
+  				<p class="video-text">Setting Up Your Sactionals</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-3-4" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751588.jpg">
+  				<br>
+
+  				<p class="video-text">Maintaining Your Sactionals</p>
+  			</div>
+  		</div>
+  	</div>
+  	<hr>
+  </div>
+  <div class="sacs-about">
+
+  	<h2 style="margin-top:100px;">About Our Sacs</h2>
+  	<div class="carousel-wrapper">
+  		<div class="carousel-2">
+  			<div class="video-wrap" id="thumb-2-1" style="background-image:url('https://content.lovesac.com/images/content/751577.gif');background-position:center;background-repeat:no-repeat;"><img class="video-img" src="https://content.lovesac.com/images/content/751589.jpg">
+  				<br>
+
+  				<p class="video-text">All About Sacs</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-2-2" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751590.jpg">
+  				<br>
+
+  				<p class="video-text">How To Fluff Your Sac</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-2-3" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751591.jpg">
+  				<br>
+
+  				<p class="video-text">SuperSac Overview</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-2-4" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751592.jpg">
+  				<br>
+
+  				<p class="video-text">MovieSac Overview</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-2-5" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751593.jpg">
+  				<br>
+
+  				<p class="video-text">CitySac Overview</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-2-6" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751594.jpg">
+  				<br>
+
+  				<p class="video-text">GamerSac Overview</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-2-7" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751595.jpg">
+  				<br>
+
+  				<p class="video-text">The BigOne Overview</p>
+  			</div>
+  		</div>
+  	</div>
+  	<hr>
+  </div>
+  <!--
+    <div class="sacs-tips">
+    <h2 style="margin-bottom:-30px;">Sacs Use & Pro Tips<h2>
+    <div class="carousel-wrapper">
+      <p class="left4"><img src="css/left-arrow.svg"></p>
+      <span class="carousel-4">
+        <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/_8sp5eL1HxY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/TgyG1ka3rhk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/U8L6WxU3ELk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      </span>
+      <p class="right4"><img src="css/right-arrow.svg"></p>
+    </div>
+    <hr>
+    </div>
+    -->
+  <div class="in-the-media">
+
+  	<h2>In The Media &amp; More</h2>
+  	<div class="carousel-wrapper">
+  		<div class="carousel-5">
+        <div class="video-wrap" id="thumb-5-0" style="background-image:url('https://content.lovesac.com/images/content/751577.gif');background-position:center;background-repeat:no-repeat;"><img class="video-img" src="https://content.lovesac.com/images/content/766118.png">
+  				<br>
+
+  				<p class="video-text">Commercial: A Lifetime Of Comfort</p>
+  			</div>
+
+  			<div class="video-wrap" id="thumb-5-1" style="margin-left:15px; background-image:url('https://content.lovesac.com/images/content/751577.gif');background-position:center;background-repeat:no-repeat;"><img class="video-img" src="https://content.lovesac.com/images/content/751596.jpg">
+  				<br>
+
+  				<p class="video-text">Commercial: The World&#39;s Most Adaptable Couch</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-5-2" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751597.jpg">
+  				<br>
+
+  				<p class="video-text">Commercial: The World&#39;s Most Comfortable Seat</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-5-3" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751598.jpg">
+  				<br>
+
+  				<p class="video-text">Dropping In With Faze Temperrr</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-5-4" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751599.jpg">
+  				<br>
+
+  				<p class="video-text">Insider: This Massive Pillow Is What We All Need</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-5-5" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751600.jpg">
+  				<br>
+
+  				<p class="video-text">Lovesac &amp; The Travis Mills Foundation</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-5-6" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751601.jpg">
+  				<br>
+
+  				<p class="video-text">About Us</p>
+  			</div>
+  			<div class="video-wrap" id="thumb-5-7" style="margin-left:15px;"><img class="video-img" src="https://content.lovesac.com/images/content/751602.jpg">
+  				<br>
+
+  				<p class="video-text">Lovesac x Call Of Duty Black Ops</p>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  <div class="button">
+
+  	<p class="cta-text">Check out the rest of our videos on our YouTube page!</p>
+  	<a class="cta" href="https://www.youtube.com/channel/UCF_h6SniKfEfbmMds6Wp27A" target="_blank">EXPLORE</a></div>
+  <!-- ********** VIDEO MODALS ********** -->
+  <!-- ***** SACTIONALS-ABOUT ***** -->
+  <div class="video-modal-lightbox" id="video-1-1">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/GWEla4rB6Ro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-1-2">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/eeNXHgXdcco" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-1-3">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/qVIydLcxfd4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-1-4">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/Ua7k5NAM6us" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-1-5">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/FjvcEmoYUcU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-1-6">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/huCwb4csFjw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-1-7">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/SIZVRBfFHOg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <!-- ***** SACTIONALS-TIPS ***** -->
+  <div class="video-modal-lightbox" id="video-3-1">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/mkUP5dmDxy8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-3-2">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/vl3GDW-FBWE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-3-3">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/keBwMfI3gAY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-3-4">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/5jNzaHLnWRc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <!-- ***** SACS-ABOUT ***** -->
+  <div class="video-modal-lightbox" id="video-2-1">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/_8sp5eL1HxY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-2-2">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/AgYW_HbyEpM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-2-3">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/9mmUu4Jtgns" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-2-4">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/eZejHKxW5qA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-2-5">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/4ECf112-SSc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-2-6">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/YiRH-b_HOlA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-2-7">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/TgyG1ka3rhk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <!-- ***** IN-THE-MEDIA ***** -->
+  <div class="video-modal-lightbox" id="video-5-0">
+    <div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+      <br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/gYNF0FFaSrs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-5-1">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/1CJtOhSUht8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-5-2">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/-7TifOxXoFk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-5-3">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/ZyazzkZCG-g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-5-4">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/e2e6CHh87Ec" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-5-5">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/O_WK9jMmP7M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-5-6">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/p58D_M7clts" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <div class="video-modal-lightbox" id="video-5-7">
+  	<div class="video-modal-body"><a class="video-modal-close"  >&times;</a>
+  		<br><span class="fr-video fr-draggable" contenteditable="false"><iframe class="youtube-iframe" width="560" height="315" src="https://www.youtube.com/embed/U8L6WxU3ELk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></span></div>
+  </div>
+  <!-- Flickity CDN -->
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <!-- ********** SCRIPTS ********** -->
+  <script>
+  	//Video Modal Defaults
+  	$(".video-modal-lightbox").hide();
+  	$(".video-modal-close").on("click", function(){
+      $("iframe").each(function() {
+        var src= $(this).attr('src');
+        $(this).attr('src',src);
+      });
+      $(".video-modal-lightbox").hide();
+  	});
+
+  	//Flickity
+  	$(".carousel-1, .carousel-2, .carousel-3, .carousel-5").flickity(
+  	{
+  		accessibility: true,
+  		contain: true,
+  		draggable: true
+  	});
+
+  	$(document).ready(function()
+  	{
+
+  		//Hide scroll-up arrow
+  		$(".scroll-to-top, .affix-top, .affix, .smooth-scroll").remove();
+
+
+  		//Defaults
+  		$(".sactionals-about").show()
+  		$(".sacs-about").hide()
+  			/* $(".sacs-tips").hide() */
+  		$("#sactionals-toggle").css(
+  		{
+  			"background-color": "#009CA6",
+  			"color": "white"
+  		});
+  		$("#sacs-toggle").css(
+  		{
+  			"background-color": "white",
+  			"color": "#54585A"
+  		});
+  		$(".banner-sactionals").show();
+  		$(".banner-sacs").hide();
+
+  		//Click on "sactionals"
+  		$("#sactionals-toggle").click(function()
+  		{
+  			$(".sactionals-about").show()
+  			$(".sactionals-tips").show()
+  			$(".sacs-about").hide()
+  				/* $(".sacs-tips").hide() */
+  			$("#sactionals-toggle").css(
+  			{
+  				"background-color": "#009CA6",
+  				"color": "white"
+  			});
+  			$("#sacs-toggle").css(
+  			{
+  				"background-color": "white",
+  				"color": "#54585A"
+  			});
+  			$(".banner-sactionals").show();
+  			$(".banner-sacs").hide();
+  		});
+
+  		//Click on "sacs"
+  		$("#sacs-toggle").click(function()
+  		{
+  			$(".sactionals-about").hide()
+  			$(".sactionals-tips").hide()
+  			$(".sacs-about").show()
+  				/* $(".sacs-tips").show() */
+  			$("#sacs-toggle").css(
+  			{
+  				"background-color": "#009CA6",
+  				"color": "white"
+  			});
+  			$("#sactionals-toggle").css(
+  			{
+  				"background-color": "white",
+  				"color": "#54585A"
+  			});
+  			$(".banner-sactionals").hide();
+  			$(".banner-sacs").show();
+  		});
+
+  		/////////VIDEO video-modalS
+  		// sactionals-about
+  		$("#thumb-1-1").on("click", function()
+  		{
+  			$("#video-1-1").show();
+  		});
+  		$("#thumb-1-2").on("click", function()
+  		{
+  			$("#video-1-2").show();
+  		});
+  		$("#thumb-1-3").on("click", function()
+  		{
+  			$("#video-1-3").show();
+  		});
+  		$("#thumb-1-4").on("click", function()
+  		{
+  			$("#video-1-4").show();
+  		});
+  		$("#thumb-1-5").on("click", function()
+  		{
+  			$("#video-1-5").show();
+  		});
+  		$("#thumb-1-6").on("click", function()
+  		{
+  			$("#video-1-6").show();
+  		});
+  		$("#thumb-1-7").on("click", function()
+  		{
+  			$("#video-1-7").show();
+  		});
+
+  		//sactionals-tips
+  		$("#thumb-3-1").on("click", function()
+  		{
+  			$("#video-3-1").show();
+  		});
+  		$("#thumb-3-2").on("click", function()
+  		{
+  			$("#video-3-2").show();
+  		});
+  		$("#thumb-3-3").on("click", function()
+  		{
+  			$("#video-3-3").show();
+  		});
+  		$("#thumb-3-4").on("click", function()
+  		{
+  			$("#video-3-4").show();
+  		});
+
+  		//sacs-about
+  		$("#thumb-2-1").on("click", function()
+  		{
+  			$("#video-2-1").show();
+  		});
+  		$("#thumb-2-2").on("click", function()
+  		{
+  			$("#video-2-2").show();
+  		});
+  		$("#thumb-2-3").on("click", function()
+  		{
+  			$("#video-2-3").show();
+  		});
+  		$("#thumb-2-4").on("click", function()
+  		{
+  			$("#video-2-4").show();
+  		});
+  		$("#thumb-2-5").on("click", function()
+  		{
+  			$("#video-2-5").show();
+  		});
+  		$("#thumb-2-6").on("click", function()
+  		{
+  			$("#video-2-6").show();
+  		});
+  		$("#thumb-2-7").on("click", function()
+  		{
+  			$("#video-2-7").show();
+  		});
+
+
+
+  		//sacs-tips -- TBA (4-1 etc)
+
+  		//in-the-media
+      $("#thumb-5-0").on("click", function()
+      {
+        $("#video-5-0").show();
+      });
+  		$("#thumb-5-1").on("click", function()
+  		{
+  			$("#video-5-1").show();
+  		});
+  		$("#thumb-5-2").on("click", function()
+  		{
+  			$("#video-5-2").show();
+  		});
+  		$("#thumb-5-3").on("click", function()
+  		{
+  			$("#video-5-3").show();
+  		});
+  		$("#thumb-5-4").on("click", function()
+  		{
+  			$("#video-5-4").show();
+  		});
+  		$("#thumb-5-5").on("click", function()
+  		{
+  			$("#video-5-5").show();
+  		});
+  		$("#thumb-5-6").on("click", function()
+  		{
+  			$("#video-5-6").show();
+  		});
+  		$("#thumb-5-7").on("click", function()
+  		{
+  			$("#video-5-7").show();
+  		});
+
+
+  	});
+
+  </script>
+</body>
+
+</html>
