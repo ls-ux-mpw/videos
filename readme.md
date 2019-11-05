@@ -28,3 +28,31 @@ $("#thumb-1-7").on("click", function() {
 });
 ```
 These elements essentially ensure that the right video modal appears when you click on a thumbnail. You'll only have to add new click events if the number of videos in a carousel increases -- as they're irrespective of content, they don't change when thumbnails or videos are shifted around.
+
+## URL-Based Functions
+At the bottom of the code is a separate script that performs different functions based on what's typed into a url suffix -- in this case, if you add `?dc=` then a parameter name, it automatically clicks on a different page element depending on the parameter name. For example, according to the code below, if you type `https://www.lovesac.com/how-to?dc=unpacking-your-sactionals`, the page will open, then the "Unpacking Your Sactionals" video modal will appear the second the page loads.
+```js
+if (dynamicContent == 'unpacking-your-sactionals') {
+
+  $('#thumb-3-1').click();
+  
+} else if (dynamicContent == 'putting-on-sactionals-covers') {
+
+  $('#thumb-3-2').click();
+  
+} else if (dynamicContent == 'setting-up-your-sactionals') {
+
+  $('#thumb-3-3').click();
+  
+} else if (dynamicContent == 'all-about-sacs') {
+
+  $('#thumb-2-1').click();
+  
+} else if (dynamicContent == 'how-to-fluff-your-sac') {
+
+  $('#thumb-2-2').click();
+}
+```
+Adding more url-based functions just involves adding another `else if` to the conditional statement. Just copy and paste in an existing one after the closing bracket of the previous part of the conditional, change the `dynamicContent == '{whatever}'` to a name of your choice (kebab-case please), and change the selector tied to its `.click()` method to the link ID of your choice. Additionally or alternatively, feel free to ditch the `.click()` method and replace it with any JavaScript or jQuery you want!
+
+You can add this script tag to any custom page on our site if you need to add url-dependent JS -- this comes in handy when trying to create links from emails or social ads. Just be sure to copy and paste the entire script, not just this conditional.
